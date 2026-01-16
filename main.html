@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Citizen Support Network</title>
+
+    <style>
+        marquee{
+            font-size: 20px;
+            font-weight: 800;
+            color: black;
+            font-family: sans-serif;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url(mainpic.jpeg);
+            background-image: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        header {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            border-bottom: 4px solid #2ecc71;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #e74c3c;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 0.5em;
+            margin-bottom: 1em;
+        }
+
+        .health-tips {
+            list-style: none;
+            margin: 1em 0;
+            padding: 1em;
+            background-color: #ffffcc;
+            padding: 0;
+            margin: 0;
+        }
+
+        .health-tip {
+            border: 1px solid #ddd;
+            margin: 1em 0;
+            padding: 1em;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .information {
+            border: 1px solid #ddd;
+            margin: 1em 0;
+            padding: 1em;
+            background-color: #ffffcc;
+            border-radius: 8px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        .events {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .event {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .event h3 {
+            color: #3498db;
+        }
+
+        .testimonials {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .testimonial {
+            flex: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .events {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .testimonial {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Senior Citizen Support Network</h1>
+    </header>
+
+    <section>
+        <h2>Health Tips</h2>
+        <ul class="health-tips">
+            <li class="health-tip">
+                <p>Stay active and engage in light exercises to maintain flexibility.</p>
+            </li>
+            <li class="health-tip">
+                <p>Include a variety of fruits and vegetables in your daily diet for essential nutrients.</p>
+            </li>
+            <li class="health-tip">
+                <p>Stay socially connected with friends and family to maintain mental well-being.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Health Care Information</h2>
+        <div class="information">
+            <p>As a senior citizen, it's crucial to prioritize your health. Regular check-ups, a balanced diet, and
+                staying
+                active are key components of a healthy lifestyle. If you have any health concerns, consult with your
+                healthcare provider for personalized advice and care.</p>
+        </div>
+    </section>
+    <section>
+        <h2>Upcoming Events</h2>
+        <div class="events">
+            <div class="event">
+                <h3>Senior Yoga Class</h3>
+                <p>Date: Decemeber 15, 2024</p>
+                <p>Time: 10:00 AM - 11:00 AM</p>
+                <p>Location: NCC Ground ,Near Piplani Petrol Pump , Bhopal.</p>
+            </div>
+            <div class="event">
+                <h3>Healthy Cooking Workshop</h3>
+                <p>Date: January 20, 2025</p>
+                <p>Time: 2:00 PM - 4:00 PM</p>
+                <p>Location:  Ravindra Bhawan Bhopal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Testimonials</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"The support network provided by this organization has been invaluable to me. I feel more connected and supported in my senior years."</p>
+                <p>- Jane Doe</p>
+            </div>
+            <div class="testimonial">
+                <p>"I'm grateful for the resources and services offered by the Senior Citizen Support Network. It's made a positive impact on my life."</p>
+                <p>- John Smith</p>
+            </div>
+        </div>
+        <button>
+            <a href="hospital_home.html">HOME</a>
+         </button>
+    </section>
+
+
+</body>
+
+</html>

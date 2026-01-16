@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--for buying and selling equipment for senior citizen -->>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Equipment for Senior Citizens</title>
+    <style>
+        body {
+            background-color: #69c491;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-family: cursive;
+            text-align: center;
+            font-size: 40px;
+            color: #007bff;
+            background-color: #96dc9af2;
+            padding: 20px;
+            margin-top: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            border: 10px dotted;
+            background-color: #7dd991;
+        }
+        .box {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .imgBx {
+            overflow: hidden;
+        }
+        .imgBx img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+        }
+        .imgBx img:hover {
+            transform: scale(1.1);
+        }
+        .content {
+            padding: 20px;
+        }
+        h2 {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #333;
+            margin: 0;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px; /* Add margin between buttons */
+        }
+        .visit-button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px; /* Add right margin between buttons */
+        }
+        .visit-button:last-child {
+            margin-right: 0; /* Remove right margin from the last button */
+        }
+        .visit-button:hover {
+            background-color: #0056b3;
+        }
+        .quantity-button {
+            background-color: #f2f2f2;
+            color: #333;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            text-decoration: none;
+            margin-left: 5px;
+            border-radius: 5px;
+        }
+        .quantity-button:hover {
+            background-color: #e0e0e0;
+        }
+        #clickCounter {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        #totalPrice {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        #cartItems {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        #cartItems h2 {
+            color: #007bff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #cartItems ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #cartItems li {
+            margin-bottom: 10px;
+        }
+        #buyNowButton {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #buyNowButton button {
+            background-color: #28a745;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #buyNowButton button:hover {
+            background-color: #218838;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Medical Equipment for Senior Citizens </h1>
+    <div class="container">
+        <!-- Sample Box 1: Wheel Chair -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/AfqV6poOU79EIKjY3fPtJfXBU5feTDvzWfs_x5t36kE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTA0/NzA3NjE1L3Bob3Rv/L2hvc3BpdGFsLXdo/ZWVsY2hhaXItb24t/d2hpdGUtYmFja2dy/b3VuZC5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9UmNmVHNG/dEt6UTdGWDBqTjdI/b2ZCYTRmNEJycVdr/Z2MzMURBNVloSk1D/Yz0" alt="Wheel Chair">
+            </div>
+            <div class="content">
+                <h2>Wheel Chair</h2>
+                <p>Wheelchair provides mobility to senior citizens who are physically challenged.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('Wheel Chair', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Box 2: Walker -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/aaLHYBu-x6tuBi-gS4y0Ql7r1IFNA5nMEV3jW5zFg74/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93d3cu/cGVyZm9ybWFuY2Vo/ZWFsdGguY29tL21l/ZGlhL3d5c2l3eWcv/MDgxNTYxNzExXzEu/anBn">
+            </div>
+            <div class="content">
+                <h2>Walker</h2>
+                <p>Walker assists senior citizens in walking and maintaining balance.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('Walker', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more boxes for other medical equipment -->
+        <!-- Sample Box 3: Blood Pressure Monitor -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/2Rk1yJx6kKgUteyvT4K8RP6jyW6LSuscDJWPI8Acn8k/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/bmVlZHMuaW4vY2Ru/L3Nob3AvcHJvZHVj/dHMvQlBMLTE4Lmpw/Zz92PTE2NzYwMDY5/ODEmd2lkdGg9OTY4">
+            </div>
+            <div class="content">
+                <h2>Blood Pressure Monitor</h2>
+                <p>Monitor blood pressure levels for senior citizens.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('Blood Pressure Monitor', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Box 4: Glucometer -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/YelwJti6FpAGlcsbixquNg8PFhv8fCF4NnqC-rUl094/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/ODFuaFJkdzFGaUwu/anBn">
+            </div>
+            <div class="content">
+                <h2>Glucometer</h2>
+                <p>Glucometer for monitoring blood glucose levels.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('Glucometer', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Box 5: Blood Glucose Test Strips -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/YelwJti6FpAGlcsbixquNg8PFhv8fCF4NnqC-rUl094/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/ODFuaFJkdzFGaUwu/anBn">
+            </div>
+            <div class="content">
+                <h2>Blood Glucose Test Strips</h2>
+                <p>Test strips for use with a glucometer to measure blood glucose levels.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('Blood Glucose Test Strips', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Box 6: Thermometer -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/rH0OFNBnQrnxRw6WMBv0dacq8egyjoVV1dIX4IAYhNc/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9l/bGVjdHJvbmljLW1v/ZGVybi10aGVybW9t/ZXRlci1pc29sYXRl/ZF85MzY3NS0xMzAz/ODcuanBnP3NpemU9/NjI2JmV4dD1qcGc">
+            </div>
+            <div class="content">
+                <h2>Thermometer</h2>
+                <p>Thermometer for measuring body temperature.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('Thermometer', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Box 7: First Aid Kit -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/hmVA-gHWW34dwwbacR-y2cE6w1zNHtI0Y6WC8nrl9gs/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9weXhp/cy5ueW1hZy5jb20v/djEvaW1ncy80YzQv/ZTcyL2JhMWVlMzdh/YjQxNzNiNGM1NDky/Y2E3MzVmZTg2NmE3/MjUucnNxdWFyZS53/NjAwLmpwZw">
+            </div>
+            <div class="content">
+                <h2>First Aid Kit</h2>
+                <p>Essential first aid supplies for emergencies.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('First Aid Kit', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Box 8: Weighing Scale -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/aEypv0dAy6JQpuN9HSlW8YOxAy0adX45cNL2wksZBFs/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzUxRDNrQWFSLWhM/LmpwZw">
+            </div>
+            <div class="content">
+                <h2>Weighing Scale</h2>
+                <p>Weighing scale for monitoring body weight.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('Weighing Scale', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Box 9: Oximeter -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/O8lcIgVbIEGFLsCPsGJ3uQJ163LMN3An-U9lUztA74k/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAzLzY1LzA3LzIz/LzM2MF9GXzM2NTA3/MjMyM19EZFNBUUxI/SHdXeTRvZTJmNVRl/cUVQV0NTa0pscVF4/dS5qcGc">
+            </div>
+            <div class="content">
+                <h2>Oximeter</h2>
+                <p>Oximeter for measuring blood oxygen saturation.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('Oximeter', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Box 10: Injections -->
+        <div class="box">
+            <div class="imgBx">
+                <img src="https://imgs.search.brave.com/Q0ISwz-RhUiK5NCKZdItFqJU_St4TJ_CwFkdGu9BhCo/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTc1/NTQ2ODgyL3Bob3Rv/L3ZpYWwtYW5kLXN5/cmluZ2UuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPU5ubzR5/dUxkYTJHazhBb2V4/SjhmTzJ1VzJJZWU2/VDZqSF9KQzNSUWIz/a2c9">
+            </div>
+            <div class="content">
+                <h2>Injections</h2>
+                <p>Medical injections for various treatments.</p>
+                <div class="button-container">
+                    <button onclick="addToCart('Injections', 1)" class="visit-button">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Display click counter, total price, and cart items -->
+    <div id="clickCounter">0</div>
+    <div id="totalPrice">Total: $0.00</div>
+    <div id="cartItems"></div>
+
+    <!-- Modal for entering email address -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Please enter your email address:</p>
+            <input type="email" id="emailInput" placeholder="Enter email...">
+            <button onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div id="buyNowButton">
+        <button>
+            <a href="hospital_home.html">Buy Now</a>
+         <!-- </button>
+        <button onclick="openModal()" id="buyNowBtn">Buy Now</button> -->
+    </div>
+
+    <script>
+       // JavaScript code to handle cart items and modal
+var cartItems = []; // Array to store cart items
+
+function addToCart(itemName, quantity) {
+    var item = {
+        name: itemName,
+        quantity: quantity
+    };
+    cartItems.push(item); // Add item to the cart
+
+    // Update cart display
+    updateCartDisplay();
+
+    // Update total price based on cart items
+    updateTotalPrice();
+}
+
+function updateCartDisplay() {
+    var cartItemsList = document.getElementById('cartItems');
+    cartItemsList.innerHTML = ''; // Clear previous cart items
+
+    var cartHeading = document.createElement('h2');
+    cartHeading.textContent = 'Shopping Cart';
+    cartItemsList.appendChild(cartHeading);
+
+    var ul = document.createElement('ul');
+
+    cartItems.forEach(function(item) {
+        var li = document.createElement('li');
+        li.textContent = `${item.name} x ${item.quantity}`;
+        ul.appendChild(li);
+    });
+
+    cartItemsList.appendChild(ul);
+}
+
+function updateTotalPrice() {
+    var totalPrice = 0;
+    cartItems.forEach(function(item) {
+        // Assuming each item costs $100 for demonstration
+        totalPrice += item.quantity * 100;
+    });
+
+    document.getElementById('totalPrice').textContent = `Total: $${totalPrice.toFixed(2)}`;
+}
+
+function openModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'block';
+}
+
+function closeModal() {
+    var modal = document.getElementById('myModal');
+    modal.style.display = 'none';
+}
+
+function proceedToCheckout() {
+    var emailInput = document.getElementById('emailInput').value;
+    if (emailInput.trim() === '') {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    // Prepare data to send to PHP script
+    var formData = new FormData();
+    formData.append('email', emailInput);
+    formData.append('cartItems', JSON.stringify(cartItems));
+    formData.append('totalPrice', document.getElementById('totalPrice').textContent.replace('Total: $', ''));
+
+    // Send form data to PHP script using fetch API
+    fetch('process_order.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); // Display response from PHP script
+        closeModal(); // Close modal after processing
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+    </script>
+</body>
+
+</html>
